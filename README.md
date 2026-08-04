@@ -6,29 +6,29 @@ A curated reading list accompanying *From Reaction to Imagination: A Survey on W
 
 [PDF](../build/world-model-survey-v1.pdf) · [LaTeX](../survey-v1.tex) · [Quality report](../autoresearch/quality_report_v1.md)
 
-本列表采用 v1 的 operational boundary：agent-facing world model 必须同时具备 interactivity 与 predictive imagination。VLM 和多数 reactive VLA 是重要基线；严格 world model 按主要接口分为 Latent WM、Vision WM 和 WAM。
+This list follows the v1 operational boundary: an agent-facing world model must satisfy both interactivity and predictive imagination. The visible taxonomy categories are VLM, VLA, Latent WM, Vision WM, and WAM.
 
 ## Table of Contents
 
 - [Taxonomy Map](#taxonomy-map)
 - [General Surveys and Position Papers](#general-surveys-and-position-papers)
-- [Baseline: Reactive VLA](#baseline-reactive-vla)
-- [Family 1: Latent World Models](#family-1-latent-world-models)
-- [Family 2: Vision World Models](#family-2-vision-world-models)
-- [Family 3: World Action Models](#family-3-world-action-models)
+- [VLA](#vla)
+- [Latent WM](#latent-wm)
+- [Vision WM](#vision-wm)
+- [WAM](#wam)
 - [Autonomous Driving and 3D/BEV World Models](#autonomous-driving-and-3dbev-world-models)
 - [Digital Agents and Verification](#digital-agents-and-verification)
 - [Maintenance Notes](#maintenance-notes)
 
 ## Taxonomy Map
 
-| Class | Agent-facing interface | Predictive imagination | Core question |
-| --- | --- | --- | --- |
-| Baseline: VLM | observation/language -> semantics | None by default | What does the current scene mean? |
-| Baseline: Reactive VLA | observation/language -> action | Implicit or unexposed | Can the policy act without comparing inspectable futures? |
-| Family 1: Latent WM | action-conditioned latent/belief transition | Implicit in compressed state | What must survive compression for planning? |
-| Family 2: Vision WM | action-conditioned pixels/video/BEV/occupancy | Explicit visual or geometric future | Is the rendered future physically usable? |
-| Family 3: WAM | joint future-state/action generation | Explicit and action-coupled | Can imagined futures and actions constrain each other? |
+| Category | Interactive? | Predictive Imagination? | Typical Mapping | Status in This Survey |
+| --- | --- | --- | --- | --- |
+| VLM | No | No | `(I, l) -> description, answer, embedding` | Passive semantic encoder |
+| VLA | Yes | Partial / interface-dependent | `(o_t, l, h_t) -> a_t` | Temporal features may be implicit; world-model status requires exposed counterfactual futures |
+| Latent WM | Yes | Yes | `(z_t, a_t) -> z_{t+1}` | Compact predictive engine |
+| Vision WM | Yes | Yes | `(I_t, A_t) -> I_hat_{t+1:t+k}` | Visual or geometric simulator |
+| WAM | Yes | Yes | `P(V_{t+1:t+k}, A_{t:t+k} | H)` | Joint visual-action generator |
 
 ## General Surveys and Position Papers
 
@@ -39,7 +39,7 @@ _Direction / keywords: Survey / taxonomy / field mapping_
 - From Human Videos to Robot Manipulation: A Survey on Scalable Vision-Language-Action Learning with Human-Centric Data, 2026 [[paper]](https://arxiv.org/abs/2606.00054) _Survey / taxonomy / field mapping_
 - Model-Based Reinforcement Learning: A Survey, 2023 [[paper]](https://scholar.google.com/scholar?q=Model+Based+Reinforcement+Learning+A+Survey) _Survey / taxonomy / field mapping_
 
-## Baseline: Reactive VLA
+## VLA
 
 _Direction / keywords: VLA / robot policy / semantic grounding / action tokens_
 
@@ -63,7 +63,7 @@ _Direction / keywords: VLA / robot policy / semantic grounding / action tokens_
 - Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware, 2023 [[paper]](https://scholar.google.com/scholar?q=Learning+Fine+Grained+Bimanual+Manipulation+with+Low+Cost+Hardware) _VLA / robot policy / semantic grounding / action tokens_
 - RT-1: Robotics Transformer for Real-World Control at Scale, 2022 [[paper]](https://arxiv.org/abs/2212.06817) _VLA / robot policy / semantic grounding / action tokens_
 
-## Family 1: Latent World Models
+## Latent WM
 
 _Direction / keywords: latent dynamics / planning / MPC / model-based RL_
 
@@ -83,7 +83,7 @@ _Direction / keywords: latent dynamics / planning / MPC / model-based RL_
 - Imagination-Augmented Agents for Deep Reinforcement Learning, 2017 [[paper]](https://arxiv.org/abs/1707.06203) _latent dynamics / planning / MPC / model-based RL_
 - Embed to Control: A Locally Linear Latent Dynamics Model for Control from Raw Images, 2015 [[paper]](https://scholar.google.com/scholar?q=Embed+to+Control+A+Locally+Linear+Latent+Dynamics+Model+for+Control+from+Raw+Images) _latent dynamics / planning / MPC / model-based RL_
 
-## Family 2: Vision World Models
+## Vision WM
 
 _Direction / keywords: video world model / controllable generation / interactive simulator_
 
@@ -117,7 +117,7 @@ _Direction / keywords: video world model / controllable generation / interactive
 - Visual Foresight: Model-Based Deep Reinforcement Learning for Vision-Based Robotic Control, 2018 [[paper]](https://arxiv.org/abs/1812.00568) _video world model / controllable generation / interactive simulator_
 - Action-Conditional Video Prediction using Deep Networks in Atari Games, 2015 [[paper]](https://arxiv.org/abs/1507.08750) _video world model / controllable generation / interactive simulator_
 
-## Family 3: World Action Models
+## WAM
 
 _Direction / keywords: WAM / joint visual-action generation / executable futures_
 
