@@ -4,7 +4,7 @@
 
 A curated reading list accompanying *From Reaction to Imagination: A Survey on World Models*.
 
-[PDF](../build/world-model-survey-v1.pdf) · [LaTeX](../survey-v1.tex) · [Quality report](../autoresearch/quality_report_v1.md)
+[Survey](../build/world-model-survey-v1.pdf) · [Source](../survey-v1.tex) · [Quality report](../autoresearch/quality_report_v1.md)
 
 This list follows the v1 operational boundary: an agent-facing world model must satisfy both interactivity and predictive imagination. The visible taxonomy categories are VLM, VLA, Latent WM, Vision WM, and WAM.
 
@@ -18,7 +18,6 @@ This list follows the v1 operational boundary: an agent-facing world model must 
 - [WAM](#wam)
 - [Autonomous Driving and 3D/BEV World Models](#autonomous-driving-and-3dbev-world-models)
 - [Digital Agents and Verification](#digital-agents-and-verification)
-- [Maintenance Notes](#maintenance-notes)
 
 ## Taxonomy Map
 
@@ -28,7 +27,7 @@ This list follows the v1 operational boundary: an agent-facing world model must 
 | VLA | Yes | Partial / interface-dependent | `(o_t, l, h_t) -> a_t` | Temporal features may be implicit; world-model status requires exposed counterfactual futures |
 | Latent WM | Yes | Yes | `(z_t, a_t) -> z_{t+1}` | Compact predictive engine |
 | Vision WM | Yes | Yes | `(I_t, A_t) -> I_hat_{t+1:t+k}` | Visual or geometric simulator |
-| WAM | Yes | Yes | `P(V_{t+1:t+k}, A_{t:t+k} | H)` | Joint visual-action generator |
+| WAM | Yes | Yes | `P(V_{t+1:t+k}, A_{t:t+k} &#124; H)` | Joint visual-action generator |
 
 ## General Surveys and Position Papers
 
@@ -179,13 +178,3 @@ _Direction / keywords: web / OS / tool-use / execution-time verification_
 - Mind2Web: Towards a Generalist Agent for the Web, 2023 [[paper]](https://scholar.google.com/scholar?q=Mind2Web+Towards+a+Generalist+Agent+for+the+Web) _web / OS / tool-use / execution-time verification_
 - SWE-bench: Can Language Models Resolve Real-World GitHub Issues?, 2023 [[paper]](https://arxiv.org/abs/2310.06770) _web / OS / tool-use / execution-time verification_
 - World of Bits: An Open-Domain Platform for Web-Based Agents, 2017 [[paper]](https://scholar.google.com/scholar?q=World+of+Bits+An+Open+Domain+Platform+for+Web+Based+Agents) _web / OS / tool-use / execution-time verification_
-
-## Maintenance Notes
-
-- Current README count: 115 papers/resources.
-- Primary metadata source: [../references.bib](../references.bib).
-- Current survey source: [../survey-v1.tex](../survey-v1.tex).
-- Current PDF: [../build/world-model-survey-v1.pdf](../build/world-model-survey-v1.pdf).
-- Legacy four-paradigm seed table: [papers-by-paradigm.md](papers-by-paradigm.md).
-- To add or remove papers, update `SECTIONS` in [../tools/build_awesome_readme.py](../tools/build_awesome_readme.py), then run `python3 tools/build_awesome_readme.py`.
-- Before camera-ready use, replace Scholar fallback links with DOI, arXiv, OpenReview, project pages, or official venue URLs where available.
